@@ -88,19 +88,19 @@ public class DAO_Student {
 			PreparedStatement st = connection.prepareStatement(sql);
 			st.setString(1, param);
 			ResultSet resultSet = st.executeQuery();
-			while (resultSet.next()) {
+			if (resultSet.next()) {
 				String id = resultSet.getString("id");
 				String name = resultSet.getString("name");
 				Date birthday = resultSet.getDate("birthday");
 				double score = resultSet.getDouble("score");
 				student = new Student(id, name, birthday, score);
-				break;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		JDBC.close(connection);
+		System.out.println("Student: "+ student.toString());
 		return student;
 	}
 }
