@@ -28,26 +28,6 @@ public class Server {
 		}
 	}
 
-	private static void printList(PrintWriter printWriter, ArrayList<Student> list) {
-		printWriter.println("===" + list.size() + " results===");
-		for (Student s : list) {
-			printWriter.println("-" + s.toString());
-		}
-		printWriter.println("=========");
-	}
-
-	private static ArrayList<String> getCommand(String line) {
-		ArrayList<String> commands = new ArrayList<>();
-		StringTokenizer tokenizer = new StringTokenizer(line = line.trim());
-		commands.add(tokenizer.nextToken());
-
-		while (tokenizer.hasMoreTokens()) {
-			commands.add(tokenizer.nextToken());
-		}
-
-		return commands;
-	}
-
 	public static void main(String[] args) {
 		server();
 	}
